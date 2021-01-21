@@ -47,20 +47,23 @@ aap.get('/weather', (req, res) => {
                 if (error) {
                     return res.send({error});
                 }
-                res.render('weather', {temp: forecast})
-                // res.send(forecast);
+                //res.render('weather', {temp: forecast})
+                res.send({
+                    forecast: forecast,
+                    address: req.query.city
+                });
             });
         });
     }
 });
 
-// aap.get('/weather1', (req, res) => {
-//     // console.log(req);
-// });
+aap.get('/weather1', (req, res) => {
+    // console.log(req);
+});
 
-// aap.get('/weather/*', (req, res) => {
-//     res.send('Weather page not found.');
-// });
+aap.get('/weather/*', (req, res) => {
+    res.send('Weather page not found.');
+});
 
 aap.get('*', (req, res) => {
     res.send('Page not found 404');

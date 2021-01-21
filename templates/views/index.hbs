@@ -12,6 +12,14 @@
         <form class="weather">
             <input class="weather_val" placeholder="Location">
             <button>Submit</button>
+            <div id="loading" style="display: none;">
+                <p>Loadin......</p>
+            </div>
+            <div id="curr_temp" style="display: none;">
+                <p><strong>Location: </strong><span class="location"></span></p>
+                <p><strong>Current Temprature: </strong><span class="temp"></span></p>
+            </div>
+            
         </form>
     </div>
     {{>footer}}
