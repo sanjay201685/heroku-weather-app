@@ -41,13 +41,12 @@ aap.get('/weather', (req, res) => {
     if (req.query.city) {
         mapbox(req.query.city, (error, {latitude, longitude} = {}) => {
             if (error) {
-                return res.send({error});
+                return res.send({error: error});
             }
             forcast(latitude, longitude, (error, forecast) => {
                 if (error) {
-                    return res.send({error});
+                    return res.send({error: error});
                 }
-                //res.render('weather', {temp: forecast})
                 res.send({
                     forecast: forecast,
                     address: req.query.city
